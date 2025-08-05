@@ -3,10 +3,10 @@
 import { Button, Input } from "@/components";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
-
-import { signUpTextConent } from "./textContent";
-import { passwordRegex, phoneRegex } from "@/utils/regex";
 import { zodResolver } from "@hookform/resolvers/zod";
+
+import { passwordRegex, phoneRegex } from "@/utils/regex";
+import { signUpTextConent } from "./textContent";
 
 const signupSchema = z.object({
   name: z.string().min(1, signUpTextConent.errors.name),
@@ -41,7 +41,7 @@ export const SignupContainer = () => {
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
-      className="space-y-5 h-3/4 max-md:w-full w-[40%] md:self-start md:mr-32"
+      className="space-y-5 h-[85%] max-md:w-full w-[45%] md:self-start md:mr-32"
     >
       {/* Row with two inputs side-by-side */}
       <h1 className="font-bold text-3xl py-6 max-md:font-semibold max-md:m-auto w-full max-md:text-center max-md:text-xl">

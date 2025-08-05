@@ -12,7 +12,7 @@ export const CarImage = () => {
         alt="car"
         // this is the largest contentful paint above-the-fold so its better to be fetched eagerly
         loading="eager"
-        className="absolute max-md:bottom-16 bottom-16 left-2 max-md:w-[80%] overflow-hidden"
+        className="absolute max-md:bottom-12 bottom-16 left-2 max-md:w-[80%] overflow-hidden"
       />
     </div>
   );
