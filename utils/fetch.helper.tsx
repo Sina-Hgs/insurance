@@ -1,7 +1,7 @@
 import axios, { AxiosRequestConfig, Method } from "axios";
 
 const api = axios.create({
-  baseURL: "https://www.azki.com/api/",
+  baseURL: "https://www.azki.com/api",
   timeout: 10000,
 });
 
