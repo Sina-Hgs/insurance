@@ -1,6 +1,7 @@
+import { ButtonHTMLAttributes } from "react";
 import Image from "next/image";
-import { ButtonHTMLAttributes, ReactNode } from "react";
 import clsx from "clsx";
+
 import { StaticImport } from "next/dist/shared/lib/get-img-props";
 
 type ButtonVariant = "filled" | "outlined";
