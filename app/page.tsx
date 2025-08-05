@@ -1,5 +1,5 @@
-import { SignupContainer } from "@/containers";
+import { FormWrapper } from "@/containers";
 
-export default function Signup() {
-  return <SignupContainer />;
+export default function Home() {
+  return <FormWrapper />;
 }

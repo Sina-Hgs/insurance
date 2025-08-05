@@ -1,9 +1,8 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-
-type Step = "SIGNUP" | "INSURANCE_TYPE" | "VEHICLE" | "COMPANY" | "DISCOUNT";
+import { StepType } from "@/models";
 
 type FormState = {
-  STEP: Step;
+  STEP: StepType;
   name: string;
   lastName: string;
   mobile: string;
@@ -32,7 +31,7 @@ const formSlice = createSlice({
   name: "form",
   initialState,
   reducers: {
-    setStep: (state, action: PayloadAction<Step>) => {
+    setStep: (state, action: PayloadAction<StepType>) => {
       state.STEP = action.payload;
     },
 
