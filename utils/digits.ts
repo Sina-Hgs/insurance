@@ -1,8 +1,5 @@
 export const persianToEnglishDigits = (str: string) => {
-  const persianDigits = ["۰", "۱", "۲", "۳", "۴", "۵", "۶", "۷", "۸", "۹"];
-  return str.replace(/[۰-۹]/g, (char) =>
-    persianDigits.indexOf(char).toString()
-  );
+  return str.replace(/[۰-۹]/g, (digit) => String("۰۱۲۳۴۵۶۷۸۹".indexOf(digit)));
 };
 
 export const englishToPersianDigits = (str: string) => {

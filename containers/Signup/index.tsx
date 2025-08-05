@@ -6,6 +6,8 @@ import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 
 import { passwordRegex, phoneRegex } from "@/utils/regex";
+import { persianToEnglishDigits } from "@/utils/digits";
+
 import { signUpTextConent } from "./textContent";
 
 const signupSchema = z.object({
@@ -27,12 +29,20 @@ export const SignupContainer = () => {
   const {
     register,
     handleSubmit,
+    setValue,
+    trigger,
     formState: { errors },
   } = useForm<SignupFormValues>({
     mode: "all",
     defaultValues: { name: "", lastName: "", password: "", phone: "" },
     resolver: zodResolver(signupSchema),
   });
+
+  const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const normalized = persianToEnglishDigits(e.target.value);
+    setValue("phone", normalized, { shouldValidate: true });
+    trigger("phone");
+  };
 
   const onSubmit = (data: SignupFormValues) => {
     console.log("Signup form submitted:", data);
@@ -43,7 +53,6 @@ export const SignupContainer = () => {
       onSubmit={handleSubmit(onSubmit)}
       className="space-y-5 h-[85%] max-md:w-full w-[45%] md:self-start md:mr-32"
     >
-      {/* Row with two inputs side-by-side */}
       <h1 className="font-bold text-3xl py-6 max-md:font-semibold max-md:m-auto w-full max-md:text-center max-md:text-xl">
         {signUpTextConent.title}
       </h1>
@@ -66,14 +75,15 @@ export const SignupContainer = () => {
         />
       </div>
 
-      {/* Full width inputs stacked */}
       <Input
         label="Phone Number"
         maxLength={11}
         placeholder={signUpTextConent.labels.mobile}
         error={errors.phone?.message}
         {...register("phone")}
+        onChange={handlePhoneChange}
       />
+
       <Input
         label="Password"
         placeholder={signUpTextConent.labels.password}
@@ -83,7 +93,6 @@ export const SignupContainer = () => {
         {...register("password")}
       />
 
-      {/* Submit button aligned bottom-left */}
       <div className="flex justify-center md:justify-end pt-5">
         <Button
           type="submit"
