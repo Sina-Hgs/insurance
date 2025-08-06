@@ -62,7 +62,7 @@ export const SignupContainer = () => {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
-      <div className="flex flex-col lg:flex-row lg:space-x-4 space-y-4 lg:space-y-0 ">
+      <div className="flex flex-col lg:flex-row lg:space-x-4 space-y-4 lg:space-y-0">
         <Input
           label="Name"
           maxLength={50}

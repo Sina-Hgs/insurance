@@ -3,7 +3,7 @@ import { fetchHelper } from "@/utils/fetch.helper";
 export const getVouchers = async () => {
   try {
     const result = await fetchHelper({
-      url: "/product/third/third-discounts",
+      url: "/third/third-discounts",
       method: "GET",
     });
     return result;

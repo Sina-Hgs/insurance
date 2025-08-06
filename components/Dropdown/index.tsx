@@ -2,7 +2,7 @@ import { SelectHTMLAttributes } from "react";
 import Image, { StaticImageData } from "next/image";
 import clsx from "clsx";
 
-type Option = {
+export type Option = {
   value: string;
   label: string;
 };
@@ -11,28 +11,37 @@ type DropdownProps = {
   label?: string;
   error?: string;
   options: Option[];
+  placeholder?: string;
   startIcon?: string | StaticImageData;
   endIcon?: string | StaticImageData;
-} & SelectHTMLAttributes<HTMLSelectElement>;
+} & Omit<SelectHTMLAttributes<HTMLSelectElement>, "value"> & {
+    value?: string;
+  };
 
 export const Dropdown = ({
   label,
   error,
   options,
+  placeholder = "انتخاب کنید...",
   startIcon,
   endIcon,
   className,
+  disabled,
+  value = "",
   ...rest
 }: DropdownProps) => {
   return (
     <div className="flex flex-col gap-1 w-full">
-      <label className="text-sm font-medium text-text-primary">{label}</label>
+      {label && (
+        <label className="text-sm font-medium text-text-primary">{label}</label>
+      )}
       <div
         className={clsx(
-          "flex items-center border rounded-md px-3 py-2 bg-background transition-all",
+          "flex items-center border rounded-lg px-3 py-2 bg-background transition-all",
           error
             ? "border-error"
             : "border-secondary focus-within:border-primary",
+          disabled && "opacity-50 cursor-not-allowed",
           className
         )}
       >
@@ -48,9 +57,17 @@ export const Dropdown = ({
 
         <select
           aria-label={label}
-          className="flex-1 bg-transparent outline-none text-sm text-text-primary cursor-pointer"
+          disabled={disabled}
+          value={value}
+          className={clsx(
+            "flex-1 bg-transparent outline-none text-sm text-text-primary py-2",
+            disabled ? "cursor-not-allowed" : "cursor-pointer"
+          )}
           {...rest}
         >
+          <option value="" disabled>
+            {placeholder}
+          </option>
           {options.map(({ value, label }) => (
             <option key={value} value={value}>
               {label}
