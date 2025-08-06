@@ -4,7 +4,7 @@
 
 See the deployed version here (use VPN if needed): https://insurance-tau-snowy.vercel.app/
 
-This submitted data is persisted is session storage using redux-persist to save the data on page refresh. A try again button has been developed to allow the user testing this project to clean that persisted data without closing their window tab.
+The submitted data is persisted in session storage using redux-persist to save the data on page refresh. A try again button has been developed to allow the user testing this project to clean that persisted data without closing their window tab.
 
 <img width="1920" height="837" alt="image" src="https://github.com/user-attachments/assets/af461a3d-26f4-45c7-985b-667890be3c70" />
 
