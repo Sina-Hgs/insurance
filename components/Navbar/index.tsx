@@ -2,28 +2,43 @@
 
 import Image from "next/image";
 
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "@/store";
 
 import SideBar from "@/public/icons/logo.svg";
 import User from "@/public/icons/user.svg";
 
 import { navbarTextConent } from "./textContent";
+import { Button } from "../Button";
+import { resetForm } from "@/store/formSlice";
 
 export const Navbar = () => {
+  const dispatch = useDispatch();
   const { STEP, name, lastName } = useSelector(
     (state: RootState) => state.form
   );
 
+  const handleTryAgain = () => {
+    dispatch(resetForm());
+  };
+
   return (
     <nav className="w-full relative flex justify-between items-center px-6">
-      <Image
-        src={SideBar}
-        width={24}
-        height={24}
-        alt="sidebar"
-        className="hover:opacity-50 cursor-pointer transition-all"
-      />
+      <div className="inline-flex items-center gap-4">
+        <Image
+          src={SideBar}
+          width={24}
+          height={24}
+          alt="sidebar"
+          className="hover:opacity-50 cursor-pointer transition-all"
+        />
+        <Button
+          variant="outlined"
+          title={navbarTextConent.tryAgain}
+          onClick={handleTryAgain}
+          className="!w-24 !h-10"
+        />
+      </div>
 
       <h2 className="max-md:hidden absolute left-1/2 transform -translate-x-1/2">
         {navbarTextConent.title}
