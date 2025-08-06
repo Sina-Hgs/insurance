@@ -1,4 +1,32 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Insurance Mock Dashboard
+
+# ONLINE VERSION
+
+See the deployed version here (use VPN if needed): https://insurance-tau-snowy.vercel.app/
+
+This submitted data is persisted is session storage using redux-persist to save the data on page refresh. A try again button has been developed to allow the user testing this project to clean that persisted data without closing their window tab.
+
+<img width="1920" height="837" alt="image" src="https://github.com/user-attachments/assets/4e01f6ae-8351-4345-b1f4-633a402ee293" />
+
+
+## 📦 This project was made with:
+Framework: Next.js (v15.4.5)
+
+Language: TypeScript (v5)
+
+UI: Tailwind CSS (v4), clsx
+
+Forms: React Hook Form (v7.62.0), Zod (v4), @hookform/resolvers
+
+State Management: Redux Toolkit (v2.8.2), React Redux (v9.2.0), Redux Persist (v6.0.0)
+
+Data Fetching & Caching: TanStack React Query (v5.84.1), Axios (v1.11.0)
+
+Linting & Formatting: ESLint (v9), eslint-config-next
+
+Type Definitions: @types/react, @types/node
+
+Build Tools: Next.js Scripts (dev, build, start, lint)
 
 ## Getting Started
 
