@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { StepType } from "@/models";
 
-type FormState = {
+export type FormState = {
   STEP: StepType;
   name: string;
   lastName: string;

@@ -51,14 +51,14 @@ export const Modal = ({
       <div
         ref={modalRef}
         className={clsx(
-          "bg-background rounded-lg p-6 max-w-md w-full relative shadow-2xl",
+          "bg-background rounded-xl p-6 max-w-md w-full relative shadow-2xl",
           className
         )}
       >
         <button
           aria-label="Close modal"
           onClick={onClose}
-          className="absolute top-3 left-3 text-text-trinary hover:opacity-60 focus:outline-none cursor-pointer"
+          className="absolute top-3 left-3 text-text-trinary hover:opacity-60 focus:outline-none cursor-pointer text-3xl"
         >
           &#x2715;
         </button>

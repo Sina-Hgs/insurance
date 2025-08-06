@@ -22,10 +22,10 @@ export const Button = ({
   ...rest
 }: ButtonProps) => {
   const baseStyles =
-    "relative inline-flex items-center justify-center w-36 h-12 px-4 py-2 rounded-full text-sm font-bold transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 ";
+    "relative inline-flex items-center justify-center w-36 h-12 px-4 py-2 rounded-full text-sm font-bold transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 text-nowrap whitespace-nowrap";
 
   const filledStyles = disabled
-    ? "bg-secondary text-secondary cursor-not-allowed"
+    ? "bg-primary text-text-secondary cursor-not-allowed opacity-40"
     : "bg-primary text-text-secondary hover:bg-primary/90 focus:ring-primary cursor-pointer";
 
   const outlinedStyles = disabled
@@ -50,7 +50,7 @@ export const Button = ({
         />
       )}
 
-      <span className="absolute left-1/2 -translate-x-1/2">{title}</span>
+      <span className="absolute left-1/2 -translate-x-1/2 ">{title}</span>
 
       {endIcon && (
         <Image
