@@ -1,24 +1,46 @@
-import { SignupContainer } from "@/containers";
+import {
+  InsuranceTypeContainer,
+  SignupContainer,
+  CompanyContainer,
+  VehicleTypeContainer,
+  DiscountContainer,
+} from "@/containers";
 import { StepType } from "@/models";
+import { FormWrapperTextContent } from "../textContent";
 
-export const stepGenerator = (step: StepType) => {
+interface stepGeneratorProps {
+  step: StepType;
+}
+
+export const stepGenerator = ({ step }: stepGeneratorProps) => {
+  const title = FormWrapperTextContent.titles[step];
+  let container = <></>;
+
   switch (step) {
     case "SIGNUP":
-      return <SignupContainer />;
+      container = <SignupContainer />;
+      break;
 
     case "INSURANCE_TYPE":
-      return <SignupContainer />;
+      container = <InsuranceTypeContainer />;
+      break;
 
     case "VEHICLE":
-      return <SignupContainer />;
+      container = <VehicleTypeContainer />;
+      break;
 
     case "COMPANY":
-      return <SignupContainer />;
+      container = <CompanyContainer />;
+      break;
 
     case "DISCOUNT":
-      return <SignupContainer />;
+      container = <DiscountContainer />;
+      break;
 
     default:
-      return <SignupContainer />;
+      container = <SignupContainer />;
+      break;
   }
+
+  return { title, container };
 };

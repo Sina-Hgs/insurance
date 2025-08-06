@@ -1,5 +1,4 @@
 const textContent = {
-  title: "ثبت نام",
   labels: {
     name: "نام",
     lastName: "نام خانوادگی",
@@ -17,4 +16,4 @@ const textContent = {
 } as const;
 
 type TextContent = typeof textContent;
-export const signUpTextConent: TextContent = textContent;
+export const signUpTextContent: TextContent = textContent;

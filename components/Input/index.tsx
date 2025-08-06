@@ -50,7 +50,11 @@ export const Input = ({
       </div>
 
       <div className="h-3">
-        {error && <span className="text-xs text-error">{error}</span>}
+        {error && (
+          <span className="text-xs text-error  bg-gradient-to-r from-[rgba(255,255,255,0.6)] via-[rgba(255,255,255,0.6)] to-[rgba(255,255,255,0.6)] backdrop-blur-lg">
+            {error}
+          </span>
+        )}
       </div>
     </div>
   );
