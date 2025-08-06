@@ -14,6 +14,7 @@ interface stepGeneratorProps {
 
 export const stepGenerator = ({ step }: stepGeneratorProps) => {
   const title = FormWrapperTextContent.titles[step];
+  const subtitle = FormWrapperTextContent.subtitles[step];
   let container = <></>;
 
   switch (step) {
@@ -42,5 +43,5 @@ export const stepGenerator = ({ step }: stepGeneratorProps) => {
       break;
   }
 
-  return { title, container };
+  return { title, container, subtitle };
 };
