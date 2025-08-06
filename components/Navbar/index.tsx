@@ -16,7 +16,7 @@ export const Navbar = () => {
   );
 
   return (
-    <nav className="w-full flex justify-between items-center px-6">
+    <nav className="w-full relative flex justify-between items-center px-6">
       <Image
         src={SideBar}
         width={24}
@@ -24,7 +24,10 @@ export const Navbar = () => {
         alt="sidebar"
         className="hover:opacity-50 cursor-pointer transition-all"
       />
-      <h2 className="max-md:hidden">{navbarTextConent.title}</h2>
+
+      <h2 className="max-md:hidden absolute left-1/2 transform -translate-x-1/2">
+        {navbarTextConent.title}
+      </h2>
 
       {STEP === "SIGNUP" ? (
         <p>{navbarTextConent.signup}</p>
